@@ -94,7 +94,7 @@ public class ASMGenerator {
     StringBuilder code = new StringBuilder();
 
     for (ASTNode node : ast.getRoot().getChildren()) {
-      if (node.getCurrent().getType().equals("DEF_CALL")) {
+      if (node.getCurrent().getType().equals("CALL")) {
         code.append(String.format("\tcall %s\n", node.getCurrent().getValue()));
       }
     }

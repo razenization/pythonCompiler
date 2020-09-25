@@ -151,14 +151,14 @@ public class TokenParser {
     String[] expectedIdentifiers = { "RBR", "NEW_LINE" };
     iterateAndVerify(tokenIterator, expectedIdentifiers);
 
-    ASTNode defCall = new ASTNode(new Token(prev.getValue(), "CALL", prev.getRow(), prev.getColumn()));
+    ASTNode call = new ASTNode(new Token(prev.getValue(), "CALL", prev.getRow(), prev.getColumn()));
     if (!astMap.containsKey(prev.getValue())) {
       throwAndPrint("Unexpected token", prev);
     } else {
-      defCall.appendChild(astMap.get(prev.getValue()).getRoot());
+      call.appendChild(astMap.get(prev.getValue()).getRoot());
     }
 
-    return defCall;
+    return call;
   }
 
   private void throwAndPrint(String message, Token token) throws ParseException {

@@ -26,6 +26,8 @@ _start:
 
 _main PROC
 
+	call main
+	call second
 
 	ret
 
