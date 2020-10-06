@@ -1,8 +1,8 @@
 def main():
-    return 0b10111
+    return not 24
 
 def second(): # This line is going to be removed
-    return 24.5
+    return 24 * 21
 
 main()
 second()

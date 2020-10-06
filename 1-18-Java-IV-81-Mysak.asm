@@ -15,7 +15,7 @@ main	PROTO
 second	PROTO
 
 .data
-buff db 11 dup(?)
+buff        db 11 dup(?)
 
 .code
 _start:
@@ -34,12 +34,32 @@ _main PROC
 _main ENDP
 
 main PROC
-mov ebx, 23
+
+
+push 24	
+pop ebx	; not
+xor eax, eax
+cmp eax, ebx
+sete al
+push eax
+
+pop ebx
 ret
+
 main ENDP
 second PROC
-mov ebx, 24
+
+
+push 24	
+push 21	
+pop ebx	; mul
+pop eax
+imul ebx, eax
+push ebx
+
+pop ebx
 ret
+
 second ENDP
 
 _NumbToStr PROC uses ebx x:DWORD,buffer:DWORD

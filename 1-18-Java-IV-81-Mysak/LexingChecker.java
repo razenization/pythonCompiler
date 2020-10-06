@@ -2,8 +2,6 @@ package com.amaterasu.main;
 
 import org.json.*;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +24,7 @@ public class LexingChecker {
     populateData("python.json");
 
     try {
-      text = readFile(filePath);
+      text = Util.readFile(filePath);
     } catch (IOException e) {
       System.out.println(e.getMessage());
     }
@@ -34,25 +32,9 @@ public class LexingChecker {
     generateTokens();
   }
 
-  private String readFile(String filePath) throws IOException {
-    if (!new File(filePath).exists()) {
-      throw new IOException("File does not exist");
-    }
-    StringBuilder returnText = new StringBuilder();
-    try (FileReader reader = new FileReader(filePath)) {
-      int charCode;
-      while ((charCode = reader.read()) != -1) {
-        returnText.append((char) charCode);
-      }
-    } catch (IOException e) {
-      System.out.println(e.getMessage());
-    }
-    return returnText.toString();
-  }
-
   private void populateData(String pathToTokens) {
     try {
-      String fileContents = readFile(pathToTokens);
+      String fileContents = Util.readFile(pathToTokens);
       JSONObject pythonTokensJSON = new JSONObject(fileContents);
       keywords = new ObjectMapper().readValue(pythonTokensJSON.get("keywords").toString(), HashMap.class);
       symbols = new ObjectMapper().readValue(pythonTokensJSON.get("symbols").toString(), HashMap.class);
@@ -63,6 +45,7 @@ public class LexingChecker {
   }
 
   private void generateTokens() {
+    tokens.add(new Token("null", "START", -1, -1));
     if (text.startsWith("null")) {
       text = text.substring(4);
     }
@@ -73,6 +56,7 @@ public class LexingChecker {
         tokens.add(new Token("\n", whitespaces.get("\n"), i, parseLines.length));
       }
     }
+    tokens.add(new Token("null", "END", -1, -1));
   }
 
   private boolean parseLine(String line, int row) {

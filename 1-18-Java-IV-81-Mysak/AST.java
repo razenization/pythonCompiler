@@ -29,7 +29,7 @@ public class AST {
       }
     }
     System.out
-        .printf("%s%1s (%-1s)%n", prev.toString(), child.getCurrent().getValue(), child.getCurrent().getType());
+            .printf("%s%1s (%-1s)%n", prev.toString(), child.getCurrent().getValue(), child.getCurrent().getType());
     for (ASTNode node : child.getChildren()) {
       printChildren(node, depth + 1);
     }
