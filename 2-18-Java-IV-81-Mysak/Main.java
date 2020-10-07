@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) {
     try {
-      LexingChecker lexChecker = new LexingChecker("1-18-Java-IV-81-Mysak.py");
+      LexingChecker lexChecker = new LexingChecker("2-18-Java-IV-81-Mysak.py");
 
       System.out.println("\n====> LEXING CHECK RESULT <====\n");
       lexChecker.listTokens();
@@ -15,7 +15,7 @@ public class Main {
       System.out.println("\n====> END <====\n");
 
       ASMGenerator asmGen = new ASMGenerator(parser.getCoreAST(), parser.getAstMap());
-      String generatedFileName = "1-18-Java-IV-81-Mysak.asm";
+      String generatedFileName = "2-18-Java-IV-81-Mysak.asm";
       boolean success = asmGen.createFile(generatedFileName);
 
       if (success) {

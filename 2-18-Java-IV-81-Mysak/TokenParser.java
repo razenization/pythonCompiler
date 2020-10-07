@@ -19,7 +19,7 @@ public class TokenParser {
     this.coreAST = new AST(tokenIterator.next());
     this.templates = new HashMap<>();
 
-    populateTemplates("util/templates.json");
+    populateTemplates("2-18-Java-IV-81-Mysak/util/templates.json");
     run(tokenIterator);
   }
 

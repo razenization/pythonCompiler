@@ -7,6 +7,7 @@ import java.io.IOException;
 public class Util {
   public static String readFile(String filePath) throws IOException {
     if (!new File(filePath).exists()) {
+      System.out.println(filePath);
       throw new IOException("File does not exist");
     }
     StringBuilder returnText = new StringBuilder();
