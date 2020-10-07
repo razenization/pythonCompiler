@@ -19,7 +19,7 @@ public class TokenParser {
     this.coreAST = new AST(tokenIterator.next());
     this.templates = new HashMap<>();
 
-    populateTemplates("templates.json");
+    populateTemplates("util/templates.json");
     run(tokenIterator);
   }
 
@@ -138,7 +138,7 @@ public class TokenParser {
     EXP, TERM
   }
 
-
+  // Parses either expression or term
   private ASTNode parseSlug(ExpressionType type, TwoWayIterator<Token> tokenIterator) throws ParseException {
     ASTNode slug = type == ExpressionType.EXP ? parseSlug(ExpressionType.TERM, tokenIterator) : parseFactor(tokenIterator),
             operation = null;
@@ -258,6 +258,7 @@ public class TokenParser {
   private void throwAndPrint(String message, Token token) throws ParseException {
     throw new ParseException(message, token.getRow(), token.getColumn());
   }
+  
 
   public HashMap<String, AST> getAstMap() {
     return astMap;

@@ -52,9 +52,9 @@ second PROC
 
 push 24	
 push 21	
-pop ebx	; mul
+pop ebx	; add
 pop eax
-imul ebx, eax
+add ebx, eax
 push ebx
 
 pop ebx
