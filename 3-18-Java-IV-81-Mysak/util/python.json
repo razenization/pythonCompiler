@@ -62,6 +62,8 @@
     "]": "RSBR",
     "{": "LBRC",
     "}": "RBRC",
+    "<<": "L_SHIFT",
+    ">>": "R_SHIFT",
     "&": "LOGIC_AND",
     "|": "LOGIC_OR",
     "^": "LOGIC_XOR"

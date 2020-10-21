@@ -21,7 +21,7 @@ public class LexingChecker {
     keywords = new HashMap<>();
     symbols = new HashMap<>();
     whitespaces = new HashMap<>();
-    populateData("2-18-Java-IV-81-Mysak/util/python.json");
+    populateData("3-18-Java-IV-81-Mysak/util/python.json");
 
     try {
       text = Util.readFile(filePath);

@@ -1,14 +1,15 @@
 {
   "CALL": ["IDENTIFIER", "LBR", "RBR", "NEW_LINE"],
-  "FUNC": ["DECLARATION",  "IDENTIFIER", "LBR", "RBR", "COLON", "NEW_LINE", "BLANK", "STAT"],
+  "FUNC": ["DECLARATION",  "IDENTIFIER", "LBR", "RBR", "COLON", "NEW_LINE", "BLANK"],
   "STAT": ["RETURN", "EXP", "NEW_LINE"],
-  "EXP": ["TERM", "BIN_1", "TERM"],
+  "EXP": ["WORD", "ASSIGNMENT", "ADD|EXP"],
+  "ADD": ["TERM", "BIN_1", "TERM"],
   "BIN_1": ["ADD|SUB"],
   "TERM": ["FACTOR", "BIN_2", "FACTOR"],
   "BIN_2": ["MUL|DIV"],
-  "FACTOR": ["BRACE_EXP", "UNARY_FACTOR"],
+  "FACTOR": ["BRACE_EXP", "UNARY_FACTOR", "INT|FLOAT|BIN|OCT|HEX|STRING"],
   "BRACE_EXP": ["LBR", "EXP", "RBR"],
   "UNARY_FACTOR": ["UNARY", "FACTOR"],
-  "UNARY": ["SUB|NOT", "_any"],
+  "UNARY": ["SUB|NOT"],
   "BLANK": ["TAB", "SPACE"]
 }
